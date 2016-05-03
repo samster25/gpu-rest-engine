@@ -338,7 +338,7 @@ classifier_ctx* classifier_initialize(char* model_file, char* trained_file,
         cudaError_t st = cudaGetDeviceCount(&device_count);
         if (st != cudaSuccess)
             throw std::invalid_argument("could not list CUDA devices");
-
+        device_count = 1;
         ContextPool<CaffeContext> pool;
         for (int dev = 0; dev < device_count; ++dev)
         {

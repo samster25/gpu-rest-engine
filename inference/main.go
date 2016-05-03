@@ -1,8 +1,11 @@
 package main
-
-// #cgo pkg-config: opencv cudart-7.5
-// #cgo LDFLAGS: -Lcaffe/lib -lcaffe -lglog -lboost_system -lboost_thread
-// #cgo CXXFLAGS: -std=c++11 -Icaffe/include -I.. -O2 -fomit-frame-pointer -Wall
+// #cgo CXXFLAGS: -std=c++11 -I/scratch/sammy/concur_caffe/include
+// #cgo CXXFLAGS: -I/usr/local/cuda/include/  -I/scratch/sammy/opencv/include -O2 -fomit-frame-pointer -Wall
+// #cgo LDFLAGS: -L/scratch/sammy/opencv/lib -lopencv_core  -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs
+// #cgo LDFLAGS:  -lopencv_cudaarithm -lopencv_cudaimgproc -lopencv_cudawarping
+// #cgo LDFLAGS: -L/scratch/sammy/concur_caffe/build/lib -lcaffe
+// #cgo LDFLAGS: -L/usr/local/cuda/lib64/ -lcudart -lcublas -lcurand -lglog -lboost_system -lboost_thread
+// #cgo LDFLAGS: -Wl,-rpath,/scratch/sammy/opencv/lib -Wl,-rpath,/scratch/sammy/concur_caffe/build/lib
 // #include <stdlib.h>
 // #include "classification.h"
 import "C"
